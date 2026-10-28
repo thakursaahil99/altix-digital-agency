@@ -105,8 +105,8 @@ export default function HeroVisual() {
             <svg viewBox="0 0 200 70" className="mt-3 w-full">
               <defs>
                 <linearGradient id="hv-fill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="#c8ff2e" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#c8ff2e" stopOpacity="0" />
+                  <stop offset="0%" style={{ stopColor: "var(--accent)" }} stopOpacity="0.35" />
+                  <stop offset="100%" style={{ stopColor: "var(--accent)" }} stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d="M0 62 L25 55 L50 58 L75 44 L100 47 L125 30 L150 33 L175 14 L200 6 L200 70 L0 70Z" fill="url(#hv-fill)" />
@@ -114,7 +114,7 @@ export default function HeroVisual() {
                 className="draw-path"
                 d="M0 62 L25 55 L50 58 L75 44 L100 47 L125 30 L150 33 L175 14 L200 6"
                 fill="none"
-                stroke="#c8ff2e"
+                style={{ stroke: "var(--accent)" }}
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
