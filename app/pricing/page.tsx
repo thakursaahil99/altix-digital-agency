@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Check, Minus } from "lucide-react";
+import AdsCalculator from "@/components/AdsCalculator";
 import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
 import PageHero from "@/components/PageHero";
@@ -44,6 +45,21 @@ export default function PricingPage() {
       <section className="pb-24">
         <div className="container-x">
           <PricingPlans />
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="container-x">
+          <SectionHeading
+            center
+            eyebrow="ROI calculator"
+            title="Will it pay for itself? Let's check."
+            highlight={["pay"]}
+            text="Plug in your numbers to estimate what Google or Meta Ads managed by Altix could return each month."
+          />
+          <Reveal className="mt-14">
+            <AdsCalculator />
+          </Reveal>
         </div>
       </section>
 

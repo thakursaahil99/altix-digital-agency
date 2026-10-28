@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <h4 className="text-sm font-semibold uppercase tracking-widest text-white/40">Company</h4>
           <ul className="mt-5 space-y-3">
-            {navLinks.slice(1).map((l) => (
+            {[...navLinks.slice(1), { href: "/audit", label: "Free Website Audit" }].map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="text-white/80 transition-colors hover:text-accent">
                   {l.label}

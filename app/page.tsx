@@ -15,6 +15,9 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServicesList from "@/components/ServicesList";
 import SplitText from "@/components/SplitText";
+import RotatingWords from "@/components/RotatingWords";
+import VelocityMarquee from "@/components/VelocityMarquee";
+import AuditTeaser from "@/components/AuditTeaser";
 import Testimonials from "@/components/Testimonials";
 import TiltCard from "@/components/TiltCard";
 import { clients, posts, stats } from "@/lib/data";
@@ -57,21 +60,22 @@ export default function Home() {
         <div className="container-x relative grid items-center gap-16 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-4 text-sm">
-                <span className="rounded-full bg-lime px-2.5 py-0.5 text-xs font-semibold text-black">New</span>
-                <span className="text-white/70">AI-powered SEO audits are live</span>
-                <Sparkles size={14} className="text-accent" />
-              </span>
+              <Link
+                href="/audit"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-4 text-sm transition-colors hover:border-accent/50"
+              >
+                <span className="rounded-full bg-lime px-2.5 py-0.5 text-xs font-semibold text-black">Free</span>
+                <span className="text-white/70">Instant website audit tool is live</span>
+                <Sparkles size={14} className="text-accent transition-transform group-hover:rotate-12" />
+              </Link>
             </Reveal>
 
-            <SplitText
-              as="h1"
-              immediate
-              delay={0.3}
-              text="We build, rank & scale digital brands."
-              highlight={["rank", "scale"]}
-              className="mt-8 font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl xl:text-[5.5rem]"
-            />
+            <h1 className="mt-8 font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl xl:text-[5.5rem]">
+              <SplitText as="span" immediate delay={0.3} text="We build, rank & scale" className="block" />
+              <span className="block">
+                <RotatingWords delay={0.75} words={["websites.", "apps.", "brands.", "rankings.", "revenue."]} />
+              </span>
+            </h1>
 
             <Reveal delay={0.6}>
               <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
@@ -174,6 +178,13 @@ export default function Home() {
         </div>
       </section>
 
+      <VelocityMarquee
+        rows={[
+          ["Websites", "Mobile Apps", "SEO", "Google Ads"],
+          ["Meta Ads", "Social Media", "UI/UX", "E-commerce"],
+        ]}
+      />
+
       {/* SERVICES */}
       <section className="py-24 sm:py-32">
         <div className="container-x">
@@ -200,6 +211,9 @@ export default function Home() {
 
       {/* WORK (horizontal scroll) */}
       <HorizontalWork />
+
+      {/* FREE AUDIT HOOK */}
+      <AuditTeaser />
 
       {/* WHY US */}
       <section className="py-24 sm:py-32">

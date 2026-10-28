@@ -6,9 +6,9 @@ import Lenis from "lenis";
 
 let lenis: Lenis | null = null;
 
-export function scrollToTop() {
-  if (lenis) lenis.scrollTo(0, { immediate: true });
-  else window.scrollTo(0, 0);
+export function scrollToTop(immediate = true) {
+  if (lenis) lenis.scrollTo(0, { immediate, duration: 1.4 });
+  else window.scrollTo({ top: 0, behavior: immediate ? "instant" : "smooth" });
 }
 
 export default function SmoothScroll() {

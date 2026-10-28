@@ -11,6 +11,8 @@ import SectionHeading from "@/components/SectionHeading";
 import ServiceIcon from "@/components/ServiceIcon";
 import { projects, services } from "@/lib/data";
 import WorkCardSmall from "@/components/WorkCardSmall";
+import AdsCalculator from "@/components/AdsCalculator";
+import AuditTool from "@/components/AuditTool";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -36,6 +38,9 @@ const categoryFor: Record<string, string> = {
   "ui-ux-design": "Design",
   ecommerce: "Growth",
 };
+
+const adsCalculatorFor = ["google-ads", "meta-ads", "social-media-marketing", "growth-marketing", "ecommerce"];
+const auditFor = ["web-development", "seo", "ui-ux-design"];
 
 export default async function ServiceDetail({ params }: Props) {
   const { slug } = await params;
@@ -112,6 +117,38 @@ export default async function ServiceDetail({ params }: Props) {
           ))}
         </Marquee>
       </section>
+
+      {adsCalculatorFor.includes(slug) && (
+        <section className="py-24">
+          <div className="container-x">
+            <SectionHeading
+              eyebrow="ROI calculator"
+              title="See what your ad budget could earn."
+              highlight={["earn."]}
+              text="Move the sliders to match your business. We'll show how much more revenue an optimised account could bring in."
+            />
+            <Reveal className="mt-12">
+              <AdsCalculator initial={slug === "google-ads" ? "google" : "meta"} />
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {auditFor.includes(slug) && (
+        <section className="py-24">
+          <div className="container-x">
+            <SectionHeading
+              eyebrow="Free audit"
+              title="How does your current site score?"
+              highlight={["score?"]}
+              text="Run a real Google Lighthouse audit right here — it takes about 30 seconds."
+            />
+            <Reveal className="mt-12">
+              <AuditTool />
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       <section className="py-24">
         <div className="container-x">
